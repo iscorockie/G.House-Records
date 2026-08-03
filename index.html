@@ -19,7 +19,24 @@
     --line:#332C26;
     --accent:#E8432F;
     --radius:2px;
+    --text-secondary:#CFC7BC;
+    --header-bg:rgba(16,14,12,.82);
+    --invert-bg:#F3EDE4;
+    --invert-text:#100E0C;
   }
+  html[data-theme="light"]{
+    --bg:#F3EDE4;
+    --bg-elevated:#EAE2D6;
+    --bg-elevated-2:#E0D6C6;
+    --ink:#1B1613;
+    --muted:#746B60;
+    --line:#D8CDBC;
+    --text-secondary:#4A4038;
+    --header-bg:rgba(243,237,228,.88);
+    --invert-bg:#100E0C;
+    --invert-text:#F3EDE4;
+  }
+  body{transition:background-color .25s ease, color .25s ease;}
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
@@ -61,7 +78,7 @@
   header{
     position:fixed; top:0; left:0; right:0; z-index:100;
     backdrop-filter:blur(10px);
-    background:rgba(16,14,12,.82);
+    background:var(--header-bg);
     border-bottom:1px solid var(--line);
   }
   nav.wrap{
@@ -82,6 +99,18 @@
   .navlinks a:hover{color:var(--ink);}
   .navlinks a.ig{color:var(--ink); border:1px solid var(--line); padding:9px 16px; border-radius:100px;}
   .navlinks a.ig:hover{border-color:var(--accent); color:var(--accent);}
+  .nav-right{display:flex; align-items:center; gap:20px;}
+  .theme-toggle{
+    width:38px; height:38px; border-radius:50%; flex-shrink:0;
+    border:1px solid var(--line); background:transparent; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .2s, transform .2s;
+  }
+  .theme-toggle:hover{border-color:var(--accent); transform:translateY(-1px);}
+  .theme-toggle span{font-size:16px; line-height:1; color:var(--ink);}
+  .theme-toggle .icon-moon{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-sun{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-moon{display:inline;}
   @media (max-width:760px){
     .navlinks{display:none;}
   }
@@ -157,7 +186,7 @@
   .about-grid{
     display:grid; grid-template-columns:1.1fr .9fr; gap:70px; align-items:start;
   }
-  .about-copy p{color:#CFC7BC; font-size:16px; line-height:1.75; margin-bottom:18px; max-width:520px;}
+  .about-copy p{color:var(--text-secondary); font-size:16px; line-height:1.75; margin-bottom:18px; max-width:520px;}
   .about-copy p strong{color:var(--ink);}
   .stat-list{
     border-top:1px solid var(--line);
@@ -173,7 +202,7 @@
   /* ---------- BOOKING ---------- */
   .booking{background:var(--bg-elevated); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .booking-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; align-items:start;}
-  .booking-copy p{color:#CFC7BC; font-size:16px; line-height:1.75; margin-bottom:16px; max-width:440px;}
+  .booking-copy p{color:var(--text-secondary); font-size:16px; line-height:1.75; margin-bottom:16px; max-width:440px;}
   .package-list{margin-top:28px; display:flex; flex-direction:column; gap:0;}
   .package{
     display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--line);
@@ -236,7 +265,7 @@
   .tier-name{font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
   .tier-price{font-family:'Anton',sans-serif; font-size:40px;}
   .tier-price sup{font-family:'Space Mono',monospace; font-size:14px; margin-left:4px; color:var(--muted);}
-  .tier ul{list-style:none; font-size:13.5px; color:#CFC7BC; line-height:2; margin:6px 0 10px;}
+  .tier ul{list-style:none; font-size:13.5px; color:var(--text-secondary); line-height:2; margin:6px 0 10px;}
   .tier ul li::before{content:"— "; color:var(--muted);}
   .stepper{display:flex; align-items:center; gap:14px; margin-top:auto;}
   .stepper button{
@@ -248,7 +277,7 @@
   .tier-btn{
     margin-top:10px; text-align:center; padding:13px; border-radius:100px;
     font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-    background:var(--ink); color:#100E0C; cursor:pointer; border:none;
+    background:var(--invert-bg); color:var(--invert-text); cursor:pointer; border:none;
   }
   .tier-btn:hover{background:var(--accent);}
 
@@ -278,7 +307,7 @@
   .footer-brand p{color:var(--muted); font-size:14px; max-width:280px; line-height:1.6;}
   .foot-col{display:flex; flex-direction:column; gap:12px;}
   .foot-col .k{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:6px;}
-  .foot-col a, .foot-col span{font-size:14.5px; color:#CFC7BC;}
+  .foot-col a, .foot-col span{font-size:14.5px; color:var(--text-secondary);}
   .foot-col a:hover{color:var(--accent);}
   .footer-bottom{
     display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid var(--line);
@@ -306,12 +335,18 @@
 <header>
   <nav class="wrap">
     <a href="#top" class="logo">GHOUSE<span>·</span>RECORDS</a>
-    <div class="navlinks">
-      <a href="#booking">Book Studio</a>
-      <a href="#disco">Silent Disco</a>
-      <a href="#tickets">Tickets</a>
-      <a href="#gallery">Gallery</a>
-      <a class="ig" href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener">@ghouserecordsug</a>
+    <div class="nav-right">
+      <div class="navlinks">
+        <a href="#booking">Book Studio</a>
+        <a href="#disco">Silent Disco</a>
+        <a href="#tickets">Tickets</a>
+        <a href="#gallery">Gallery</a>
+        <a class="ig" href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener">@ghouserecordsug</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode" title="Toggle light / dark mode">
+        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="icon-moon" aria-hidden="true">☾</span>
+      </button>
     </div>
   </nav>
 </header>
@@ -609,6 +644,13 @@
   track.innerHTML = mHTML;
 
   const WHATSAPP_NUMBER = "256706612367";
+
+  // theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', ()=>{
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+  });
 
   // RSVP -> whatsapp
   document.querySelectorAll('.rsvp').forEach(link=>{
