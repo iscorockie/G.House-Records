@@ -1,842 +1,1563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G.House Records — Kiwatule, Kampala</title>
-<meta name="description" content="G.House Records: recording studio and label in Kiwatule, Kampala. Book studio sessions, meet our artists, watch live streams, catch the monthly silent disco night.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0B0B0F;
-    --bg-elevated:#14141B;
-    --bg-elevated-2:#1C1C26;
-    --ink:#F5F3F7;
-    --muted:#8B8794;
-    --line:rgba(255,255,255,.08);
-    --accent:#E01B24;
-    --accent-2:#FF4D57;
-    --accent-glow:rgba(224,27,36,.35);
-    --radius:20px;
-    --text-secondary:#C4C0CC;
-    --header-bg:rgba(11,11,15,.72);
-    --invert-bg:#F5F3F7;
-    --invert-text:#0B0B0F;
-    --glass:rgba(255,255,255,.05);
-    --glass-border:rgba(255,255,255,.12);
-    --live:#FF3B30;
-  }
-  html[data-theme="light"]{
-    --bg:#F4F1EE;
-    --bg-elevated:#FFFFFF;
-    --bg-elevated-2:#F9F6F3;
-    --ink:#141018;
-    --muted:#726C78;
-    --line:rgba(0,0,0,.08);
-    --text-secondary:#43404A;
-    --header-bg:rgba(244,241,238,.82);
-    --invert-bg:#0B0B0F;
-    --invert-text:#F5F3F7;
-    --glass:rgba(255,255,255,.6);
-    --glass-border:rgba(0,0,0,.08);
-    --accent-glow:rgba(224,27,36,.2);
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg); color:var(--ink); font-family:'Sora',sans-serif;
-    -webkit-font-smoothing:antialiased; overflow-x:hidden;
-    transition:background-color .3s ease, color .3s ease;
-  }
-  ::selection{background:var(--accent); color:#fff;}
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:1240px; margin:0 auto; padding:0 28px;}
-  .eyebrow{font-family:'Space Grotesk',monospace; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-2); display:inline-flex; align-items:center; gap:8px;}
-  .eyebrow::before{content:""; width:22px; height:2px; background:var(--accent); display:inline-block;}
-  h1,h2,h3{font-family:'Clash Display','Sora',sans-serif; font-weight:600; line-height:1.0; letter-spacing:-.02em;}
-  h2{font-size:clamp(34px,5.5vw,64px); margin-bottom:12px;}
-  .script{font-family:'Caveat',cursive; color:var(--accent-2); font-weight:700;}
-  .section{padding:110px 0; position:relative;}
-  .section-head{margin-bottom:56px; max-width:660px;}
-  .section-head p{color:var(--muted); font-size:17px; margin-top:16px; line-height:1.6;}
-  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
-  @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G.House Records — Kiwatule, Kampala</title>
+  <meta name="description" content="G.House Records — recording studio, artist collective, live sessions and silent disco culture in Kiwatule, Kampala.">
 
-  /* NAV */
-  header{position:fixed; top:0; left:0; right:0; z-index:100; backdrop-filter:blur(18px); background:var(--header-bg); border-bottom:1px solid var(--line);}
-  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:78px;}
-  .logo{display:flex; align-items:center; gap:11px; font-family:'Caveat',cursive; font-size:30px; color:var(--ink); line-height:1;}
-  .logo .mark{width:38px; height:38px; flex-shrink:0; display:flex; align-items:center; justify-content:center;}
-  .logo .mark svg{width:100%; height:100%;}
-  .navlinks{display:flex; gap:4px; align-items:center; background:var(--glass); border:1px solid var(--glass-border); padding:6px; border-radius:100px;}
-  .navlinks a{font-family:'Space Grotesk',monospace; font-size:12.5px; color:var(--muted); padding:9px 14px; border-radius:100px; transition:all .2s;}
-  .navlinks a:hover{color:var(--ink); background:var(--bg-elevated-2);}
-  .nav-right{display:flex; align-items:center; gap:14px;}
-  .ig-btn{font-family:'Space Grotesk',monospace; font-size:13px; background:var(--accent); color:#fff; padding:11px 20px; border-radius:100px; box-shadow:0 8px 24px var(--accent-glow); transition:transform .2s;}
-  .ig-btn:hover{transform:translateY(-2px);}
-  .theme-toggle{width:42px; height:42px; border-radius:50%; flex-shrink:0; border:1px solid var(--glass-border); background:var(--glass); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s;}
-  .theme-toggle:hover{border-color:var(--accent); transform:translateY(-1px);}
-  .theme-toggle span{font-size:17px; line-height:1; color:var(--ink);}
-  .theme-toggle .icon-moon{display:none;}
-  html[data-theme="light"] .theme-toggle .icon-sun{display:none;}
-  html[data-theme="light"] .theme-toggle .icon-moon{display:inline;}
-  @media (max-width:980px){ .navlinks{display:none;} }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet">
 
-  /* HERO */
-  .hero{position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding-top:120px; padding-bottom:50px; overflow:hidden;}
-  .hero-bg-glow{position:absolute; top:-10%; right:-5%; width:60vw; height:60vw; max-width:800px; max-height:800px; background:radial-gradient(circle, var(--accent-glow), transparent 65%); z-index:0; pointer-events:none; filter:blur(20px);}
-  .hero-ghost{position:absolute; right:-4%; bottom:-8%; width:min(46vw,620px); z-index:0; opacity:.11; pointer-events:none;}
-  html[data-theme="light"] .hero-ghost{opacity:.06;}
-  .hero-inner{position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center;}
-  .hero-tag{display:inline-flex; align-items:center; gap:10px; margin-bottom:26px; background:var(--glass); border:1px solid var(--glass-border); padding:9px 16px; border-radius:100px; font-family:'Space Grotesk',monospace; font-size:12.5px; color:var(--text-secondary);}
-  .hero-tag .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px var(--accent); animation:pulse 1.8s infinite;}
-  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
-  .hero h1{font-size:clamp(52px,8vw,104px); margin-bottom:26px; letter-spacing:-.03em;}
-  .hero h1 .line{display:block;}
-  .hero h1 .grad{background:linear-gradient(100deg, var(--accent-2), var(--accent)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  .hero-sub{max-width:480px; color:var(--muted); font-size:17.5px; line-height:1.7; margin-bottom:40px;}
-  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px;}
-  .btn{font-family:'Space Grotesk',monospace; font-size:14px; padding:16px 30px; border-radius:100px; display:inline-flex; align-items:center; gap:9px; transition:transform .18s ease, box-shadow .2s, background .2s, border-color .2s, color .2s; cursor:pointer; border:1px solid transparent; font-weight:500;}
-  .btn:hover{transform:translateY(-3px);}
-  .btn-solid{background:var(--accent); color:#fff; box-shadow:0 10px 30px var(--accent-glow);}
-  .btn-solid:hover{box-shadow:0 16px 40px var(--accent-glow);}
-  .btn-ghost{border-color:var(--glass-border); color:var(--ink); background:var(--glass); backdrop-filter:blur(10px);}
-  .btn-ghost:hover{border-color:var(--accent); color:var(--accent-2);}
-  .hero-stats{display:flex; gap:36px; flex-wrap:wrap;}
-  .hero-stats .hs-item .num{font-family:'Clash Display',sans-serif; font-weight:600; font-size:30px; line-height:1;}
-  .hero-stats .hs-item .lbl{font-family:'Space Grotesk',monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:6px;}
+  <style>
+    :root{
+      --bg:#090707;
+      --bg-soft:#120d0d;
+      --panel:#171111;
+      --panel-2:#211616;
+      --red:#d90909;
+      --red-hot:#ff3737;
+      --wine:#720909;
+      --cream:#f6efe8;
+      --text:#f6efe8;
+      --muted:#a89994;
+      --line:rgba(255,255,255,.13);
+      --glass:rgba(255,255,255,.055);
+      --radius:16px;
+    }
 
-  /* GLASS PLAYER */
-  .player-card{background:var(--glass); backdrop-filter:blur(24px); border:1px solid var(--glass-border); border-radius:26px; padding:22px; box-shadow:0 30px 80px rgba(0,0,0,.4);}
-  .player-art{position:relative; border-radius:18px; overflow:hidden; aspect-ratio:1/1; margin-bottom:18px;}
-  .player-art img{width:100%; height:100%; object-fit:cover;}
-  .player-art .now{position:absolute; top:14px; left:14px; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); padding:6px 12px; border-radius:100px; font-family:'Space Grotesk',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#fff; display:flex; align-items:center; gap:7px;}
-  .player-art .now .eqmini{display:flex; gap:2px; align-items:flex-end; height:11px;}
-  .player-art .now .eqmini i{width:2.5px; background:var(--accent-2); animation:eqm .9s ease-in-out infinite;}
-  .player-art .now .eqmini i:nth-child(2){animation-delay:.2s;}
-  .player-art .now .eqmini i:nth-child(3){animation-delay:.4s;}
-  @keyframes eqm{0%,100%{height:3px;}50%{height:11px;}}
-  .player-meta{margin-bottom:16px;}
-  .player-meta .track{font-family:'Clash Display',sans-serif; font-weight:600; font-size:20px;}
-  .player-meta .artist{color:var(--muted); font-size:13.5px; margin-top:3px;}
-  .player-progress{height:4px; background:var(--bg-elevated-2); border-radius:100px; overflow:hidden; margin-bottom:16px;}
-  .player-progress i{display:block; height:100%; width:38%; background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:100px;}
-  .player-controls{display:flex; align-items:center; justify-content:center; gap:22px;}
-  .player-controls button{background:none; border:none; color:var(--ink); cursor:pointer; font-size:20px; opacity:.8; transition:opacity .2s;}
-  .player-controls button:hover{opacity:1;}
-  .player-controls .play{width:52px; height:52px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px var(--accent-glow); font-size:18px; opacity:1;}
-  @media (max-width:860px){ .hero-inner{grid-template-columns:1fr;} .player-card{max-width:400px;} }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter,Arial,sans-serif;
+      overflow-x:hidden;
+    }
 
-  /* MARQUEE */
-  .marquee{border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; white-space:nowrap; background:var(--accent);}
-  .marquee-track{display:inline-block; padding:15px 0; animation:scroll 26s linear infinite;}
-  .marquee-track span{font-family:'Clash Display',sans-serif; font-weight:600; font-size:16px; color:#fff; margin:0 22px;}
-  .marquee-track span .star{color:#0B0B0F;}
-  @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:999;
+      opacity:.08;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+    }
 
-  /* LIVE STREAM */
-  .live{background:var(--bg-elevated); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .live-grid{display:grid; grid-template-columns:1.6fr .9fr; gap:36px; align-items:stretch;}
-  .live-stage{position:relative; border-radius:24px; overflow:hidden; border:1px solid var(--glass-border); background:#000; min-height:420px;}
-  .live-stage img{width:100%; height:100%; object-fit:cover; opacity:.72;}
-  .live-stage::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.75));}
-  .live-overlay{position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:space-between; padding:24px;}
-  .live-badge{display:inline-flex; align-items:center; gap:8px; align-self:flex-start; background:var(--live); color:#fff; font-family:'Space Grotesk',monospace; font-size:12px; letter-spacing:.1em; padding:8px 14px; border-radius:100px; box-shadow:0 6px 20px rgba(255,59,48,.5);}
-  .live-badge .lp{width:8px; height:8px; border-radius:50%; background:#fff; animation:pulse 1.4s infinite;}
-  .live-badge.offline{background:rgba(0,0,0,.6); backdrop-filter:blur(6px); box-shadow:none;}
-  .live-badge.offline .lp{background:var(--muted); animation:none;}
-  .live-play{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:74px; height:74px; border-radius:50%; background:var(--accent); color:#fff; border:none; cursor:pointer; font-size:26px; display:flex; align-items:center; justify-content:center; box-shadow:0 12px 40px var(--accent-glow); transition:transform .2s; z-index:3;}
-  .live-play:hover{transform:translate(-50%,-50%) scale(1.08);}
-  .live-bottom{color:#fff;}
-  .live-bottom h3{font-family:'Clash Display',sans-serif; font-weight:600; font-size:26px; margin-bottom:6px;}
-  .live-bottom p{font-size:14px; color:#d8d5db;}
-  .live-viewers{display:inline-flex; align-items:center; gap:7px; margin-top:12px; font-family:'Space Grotesk',monospace; font-size:12.5px; color:#fff; background:rgba(255,255,255,.12); backdrop-filter:blur(8px); padding:6px 12px; border-radius:100px;}
-  .live-side{display:flex; flex-direction:column; gap:14px;}
-  .live-side .sh{font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:2px;}
-  .stream-item{display:flex; gap:14px; align-items:center; padding:14px; background:var(--bg); border:1px solid var(--line); border-radius:16px; transition:border-color .2s, transform .2s;}
-  .stream-item:hover{border-color:var(--accent); transform:translateX(4px);}
-  .stream-thumb{width:74px; height:56px; border-radius:10px; object-fit:cover; flex-shrink:0;}
-  .stream-info h4{font-family:'Clash Display',sans-serif; font-weight:600; font-size:15px; margin-bottom:3px;}
-  .stream-info p{font-family:'Space Grotesk',monospace; font-size:11.5px; color:var(--muted);}
-  .stream-info .tag{color:var(--accent-2);}
-  .notify-box{margin-top:6px; background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:18px;}
-  .notify-box p{font-size:13.5px; color:var(--text-secondary); margin-bottom:12px;}
-  .notify-row{display:flex; gap:8px;}
-  .notify-row input{flex:1; background:var(--bg-elevated-2); border:1px solid var(--line); color:var(--ink); padding:12px 14px; font-family:'Sora',sans-serif; font-size:13.5px; border-radius:10px;}
-  .notify-row input:focus{border-color:var(--accent); outline:none;}
-  .notify-row button{background:var(--accent); color:#fff; border:none; padding:0 18px; border-radius:10px; font-family:'Space Grotesk',monospace; font-size:13px; cursor:pointer; white-space:nowrap;}
-  @media (max-width:860px){ .live-grid{grid-template-columns:1fr;} }
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    img{display:block;width:100%;max-width:100%;object-fit:cover}
+    .wrap{width:min(1240px,calc(100% - 42px));margin:0 auto}
+    .section{padding:112px 0}
+    .mono{
+      font-family:"DM Mono",monospace;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      font-size:11px;
+    }
 
-  /* ABOUT */
-  .about-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:70px; align-items:center;}
-  .about-copy p{color:var(--text-secondary); font-size:16.5px; line-height:1.8; margin-bottom:18px; max-width:540px;}
-  .about-copy p strong{color:var(--ink); font-weight:600;}
-  .about-visual{position:relative; border-radius:24px; overflow:hidden; aspect-ratio:4/5; border:1px solid var(--glass-border);}
-  .about-visual img{width:100%; height:100%; object-fit:cover; filter:grayscale(.2) contrast(1.05);}
-  .about-visual .badge{position:absolute; bottom:20px; left:20px; right:20px; background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--glass-border); border-radius:16px; padding:18px 20px; display:flex; justify-content:space-between; align-items:center;}
-  .about-visual .badge .k{font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#d8d5db;}
-  .about-visual .badge .v{font-family:'Clash Display',sans-serif; font-weight:600; font-size:24px; color:#fff;}
-  .stat-row{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:34px;}
-  .stat-card{background:var(--bg-elevated); border:1px solid var(--line); border-radius:16px; padding:22px;}
-  .stat-card .v{font-family:'Clash Display',sans-serif; font-weight:600; font-size:28px;}
-  .stat-card .k{font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:6px;}
+    h1,h2,h3{
+      font-family:Anton,sans-serif;
+      font-weight:400;
+      line-height:.89;
+      letter-spacing:.015em;
+      text-transform:uppercase;
+    }
 
-  /* ARTISTS */
-  .artist-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
-  .artist-card{background:var(--bg-elevated); border:1px solid var(--line); border-radius:20px; overflow:hidden; transition:border-color .25s, transform .25s; cursor:pointer;}
-  .artist-card:hover{border-color:var(--accent); transform:translateY(-6px);}
-  .artist-photo{position:relative; aspect-ratio:1/1; overflow:hidden;}
-  .artist-photo img{width:100%; height:100%; object-fit:cover; filter:grayscale(.25) contrast(1.05); transition:filter .3s, transform .5s;}
-  .artist-card:hover .artist-photo img{filter:none; transform:scale(1.06);}
-  .artist-genre{position:absolute; top:12px; left:12px; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#fff; font-family:'Space Grotesk',monospace; font-size:10.5px; letter-spacing:.06em; padding:5px 11px; border-radius:100px;}
-  .artist-body{padding:18px 20px 22px;}
-  .artist-body h3{font-family:'Clash Display',sans-serif; font-weight:600; font-size:20px; margin-bottom:4px;}
-  .artist-body .role{font-family:'Space Grotesk',monospace; font-size:12px; color:var(--accent-2); margin-bottom:12px;}
-  .artist-body .bio{font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:16px;}
-  .artist-social{display:flex; gap:8px; flex-wrap:wrap;}
-  .artist-social a{font-family:'Space Grotesk',monospace; font-size:11px; color:var(--text-secondary); border:1px solid var(--line); padding:7px 12px; border-radius:100px; transition:all .2s;}
-  .artist-social a:hover{border-color:var(--accent); color:var(--accent-2);}
-  @media (max-width:980px){ .artist-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:520px){ .artist-grid{grid-template-columns:1fr;} }
+    h2{font-size:clamp(48px,8.5vw,110px)}
+    p{line-height:1.7}
 
-  /* ARTIST MODAL */
-  .modal-overlay{position:fixed; inset:0; z-index:200; background:rgba(0,0,0,.7); backdrop-filter:blur(6px); display:none; align-items:center; justify-content:center; padding:24px;}
-  .modal-overlay.open{display:flex;}
-  .modal{background:var(--bg-elevated); border:1px solid var(--glass-border); border-radius:24px; max-width:640px; width:100%; overflow:hidden; position:relative; max-height:90vh; overflow-y:auto;}
-  .modal-close{position:absolute; top:16px; right:16px; z-index:3; width:38px; height:38px; border-radius:50%; background:rgba(0,0,0,.5); backdrop-filter:blur(8px); border:1px solid var(--glass-border); color:#fff; font-size:18px; cursor:pointer;}
-  .modal-hero{display:flex; gap:20px; padding:26px; align-items:center; background:linear-gradient(120deg, rgba(224,27,36,.18), transparent);}
-  .modal-hero img{width:110px; height:110px; border-radius:18px; object-fit:cover; flex-shrink:0;}
-  .modal-hero h3{font-family:'Clash Display',sans-serif; font-weight:600; font-size:30px; margin-bottom:6px;}
-  .modal-hero .role{font-family:'Space Grotesk',monospace; font-size:13px; color:var(--accent-2);}
-  .modal-hero .genre{font-family:'Space Grotesk',monospace; font-size:11.5px; color:var(--muted); margin-top:8px;}
-  .modal-body{padding:0 26px 26px;}
-  .modal-body .bio-full{font-size:15px; color:var(--text-secondary); line-height:1.75; margin-bottom:24px;}
-  .modal-tracks{margin-bottom:24px;}
-  .modal-tracks .sh{font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;}
-  .mtrack{display:flex; align-items:center; gap:14px; padding:12px 14px; background:var(--bg); border:1px solid var(--line); border-radius:12px; margin-bottom:8px;}
-  .mtrack .mplay{width:34px; height:34px; border-radius:50%; background:var(--accent); color:#fff; border:none; cursor:pointer; flex-shrink:0; font-size:13px;}
-  .mtrack .mt-name{font-family:'Clash Display',sans-serif; font-weight:600; font-size:15px;}
-  .mtrack .mt-meta{font-family:'Space Grotesk',monospace; font-size:11.5px; color:var(--muted); margin-left:auto;}
-  .modal-social{display:flex; gap:10px; flex-wrap:wrap;}
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--red-hot);
+      margin-bottom:17px;
+    }
 
-  /* BOOKING */
-  .booking{background:var(--bg-elevated); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .booking-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:start;}
-  .booking-copy p{color:var(--text-secondary); font-size:16.5px; line-height:1.8; margin-bottom:16px; max-width:440px;}
-  .package-list{margin-top:28px; display:flex; flex-direction:column; gap:10px;}
-  .package{display:flex; justify-content:space-between; align-items:center; padding:16px 20px; background:var(--bg); border:1px solid var(--line); border-radius:14px; font-family:'Space Grotesk',monospace; font-size:14px; transition:border-color .2s, transform .2s;}
-  .package:hover{border-color:var(--accent); transform:translateX(4px);}
-  .package .p-name{color:var(--ink);}
-  .package .p-rate{color:var(--accent-2); font-weight:700;}
-  .package.hl{border-color:var(--accent); background:linear-gradient(100deg, rgba(224,27,36,.12), transparent);}
-  form{background:var(--bg); border:1px solid var(--line); border-radius:var(--radius); padding:36px;}
-  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
-  .field{display:flex; flex-direction:column; gap:8px; margin-bottom:16px;}
-  .field label{font-family:'Space Grotesk',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
-  .field input, .field select, .field textarea{background:var(--bg-elevated-2); border:1px solid var(--line); color:var(--ink); padding:14px 15px; font-family:'Sora',sans-serif; font-size:14.5px; border-radius:12px; width:100%; transition:border-color .2s;}
-  .field select{appearance:none; cursor:pointer;}
-  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--accent); outline:none;}
-  .field textarea{resize:vertical; min-height:84px;}
-  .submit-row{display:flex; align-items:center; gap:16px; margin-top:8px; flex-wrap:wrap;}
-  .form-note{font-family:'Space Grotesk',monospace; font-size:11.5px; color:var(--muted); line-height:1.6;}
+    .eyebrow::before{
+      content:"";
+      width:27px;
+      height:1px;
+      background:currentColor;
+    }
 
-  /* SILENT DISCO */
-  .disco-list{display:flex; flex-direction:column; gap:14px;}
-  .disco-row{display:grid; grid-template-columns:96px 1fr auto auto; gap:24px; align-items:center; padding:22px 26px; background:var(--bg-elevated); border:1px solid var(--line); border-radius:18px; transition:border-color .25s, transform .25s;}
-  .disco-row:hover{border-color:var(--accent); transform:translateY(-3px);}
-  .disco-date{font-family:'Clash Display',sans-serif; display:flex; flex-direction:column; text-align:center; background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:10px 6px;}
-  .disco-date .dd{font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.1em; color:var(--accent-2);}
-  .disco-date .dm{font-size:22px; font-weight:600; color:var(--ink); margin-top:2px;}
-  .disco-info h3{font-family:'Clash Display',sans-serif; font-weight:600; font-size:21px; margin-bottom:5px;}
-  .disco-info p{font-size:13.5px; color:var(--muted);}
-  .disco-price{font-family:'Space Grotesk',monospace; font-size:15px; color:var(--accent-2); font-weight:700; white-space:nowrap;}
-  .rsvp{font-family:'Space Grotesk',monospace; font-size:12.5px; color:#fff; background:var(--accent); padding:11px 20px; border-radius:100px; transition:all .2s; white-space:nowrap; box-shadow:0 6px 18px var(--accent-glow);}
-  .rsvp:hover{transform:translateY(-2px);}
-  .disco-note{margin-top:24px; font-family:'Space Grotesk',monospace; font-size:12.5px; color:var(--muted);}
+    .btn{
+      border:1px solid transparent;
+      border-radius:100px;
+      min-height:47px;
+      padding:13px 21px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      font:500 11px "DM Mono",monospace;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease;
+    }
 
-  /* COUNTDOWN */
-  .countdown{display:flex; gap:14px; margin:34px 0 8px; flex-wrap:wrap;}
-  .cd-box{background:var(--bg-elevated); border:1px solid var(--line); border-radius:16px; padding:18px 22px; text-align:center; min-width:90px;}
-  .cd-box .n{font-family:'Clash Display',sans-serif; font-weight:600; font-size:38px; line-height:1; color:var(--accent-2);}
-  .cd-box .l{font-family:'Space Grotesk',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:8px;}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-red{background:var(--red);color:#fff}
+    .btn-red:hover{background:var(--red-hot)}
+    .btn-light{background:var(--cream);color:#100b0b}
+    .btn-outline{background:transparent;border-color:var(--line);color:#fff}
+    .btn-outline:hover{border-color:var(--red-hot);color:var(--red-hot)}
 
-  /* TICKETING */
-  .tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:44px;}
-  .tier{border:1px solid var(--line); border-radius:var(--radius); padding:32px 28px; display:flex; flex-direction:column; gap:15px; background:var(--bg-elevated); transition:border-color .25s, transform .25s; position:relative; overflow:hidden;}
-  .tier:hover{transform:translateY(-4px);}
-  .tier.featured{border-color:var(--accent); background:linear-gradient(160deg, rgba(224,27,36,.14), var(--bg-elevated));}
-  .tier.featured::after{content:"POPULAR"; position:absolute; top:18px; right:-30px; background:var(--accent); color:#fff; font-family:'Space Grotesk',monospace; font-size:10px; letter-spacing:.1em; padding:5px 36px; transform:rotate(45deg);}
-  .tier-name{font-family:'Space Grotesk',monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);}
-  .tier-price{font-family:'Clash Display',sans-serif; font-weight:600; font-size:46px;}
-  .tier-price sup{font-family:'Space Grotesk',monospace; font-size:14px; margin-left:5px; color:var(--muted); font-weight:400;}
-  .tier ul{list-style:none; font-size:14px; color:var(--text-secondary); line-height:2; margin:6px 0 10px;}
-  .tier ul li{display:flex; align-items:center; gap:9px;}
-  .tier ul li::before{content:""; width:16px; height:16px; border-radius:50%; background:var(--accent); flex-shrink:0; mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/12px no-repeat;}
-  .stepper{display:flex; align-items:center; gap:16px; margin-top:auto;}
-  .stepper button{width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--bg); color:var(--ink); font-size:18px; cursor:pointer; font-family:'Space Grotesk',monospace; transition:all .2s;}
-  .stepper button:hover{border-color:var(--accent); color:var(--accent-2);}
-  .stepper .qty{font-family:'Clash Display',sans-serif; font-weight:600; min-width:20px; text-align:center; font-size:18px;}
-  .tier-btn{margin-top:12px; text-align:center; padding:15px; border-radius:100px; font-family:'Space Grotesk',monospace; font-size:13px; background:var(--invert-bg); color:var(--invert-text); cursor:pointer; border:none; transition:background .2s, color .2s; font-weight:500;}
-  .tier-btn:hover{background:var(--accent); color:#fff;}
-  .ticket-summary{background:var(--bg-elevated); border:1px dashed var(--accent); border-radius:var(--radius); padding:34px; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center;}
-  .ref{font-family:'Space Grotesk',monospace; font-size:14px; color:var(--muted);}
-  .ref b{color:var(--accent-2); letter-spacing:.05em; font-size:18px;}
-  .momo-steps{font-family:'Space Grotesk',monospace; font-size:12.5px; color:var(--muted); line-height:2; margin-top:12px;}
-  .momo-steps b{color:var(--ink);}
+    :focus-visible{outline:2px solid var(--red-hot);outline-offset:3px}
 
-  /* GALLERY */
-  .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
-  .gcard{position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--line);}
-  .gcard img{width:100%; height:240px; object-fit:cover; filter:grayscale(.2) contrast(1.05); transition:filter .3s, transform .5s;}
-  .gcard:hover img{filter:none; transform:scale(1.05);}
-  .gcard .cap{position:absolute; bottom:0; left:0; right:0; padding:16px; background:linear-gradient(transparent, rgba(0,0,0,.85)); font-family:'Space Grotesk',monospace; font-size:12px; color:#fff;}
-  .gallery .gcard:nth-child(1){grid-row:span 2;}
-  .gallery .gcard:nth-child(1) img{height:100%;}
+    /* NAV */
+    header{
+      position:fixed;
+      inset:0 0 auto;
+      z-index:100;
+      background:linear-gradient(to bottom,rgba(9,7,7,.95),rgba(9,7,7,.55),transparent);
+      backdrop-filter:blur(10px);
+    }
 
-  /* FOOTER */
-  footer{border-top:1px solid var(--line); padding:80px 0 34px; background:var(--bg-elevated);}
-  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; margin-bottom:60px;}
-  .footer-brand .logo{margin-bottom:18px;}
-  .footer-brand p{color:var(--muted); font-size:14.5px; max-width:300px; line-height:1.7;}
-  .foot-col{display:flex; flex-direction:column; gap:12px;}
-  .foot-col .k{font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-2); margin-bottom:6px;}
-  .foot-col a, .foot-col span{font-size:14.5px; color:var(--text-secondary);}
-  .foot-col a:hover{color:var(--accent-2);}
-  .footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid var(--line); font-family:'Space Grotesk',monospace; font-size:12px; color:var(--muted); flex-wrap:wrap; gap:10px;}
+    nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
 
-  @media (max-width:900px){
-    .about-grid, .booking-grid{grid-template-columns:1fr; gap:40px;}
-    .tiers{grid-template-columns:1fr;}
-    .gallery{grid-template-columns:1fr 1fr;}
-    .gallery .gcard:nth-child(1){grid-row:span 1;}
-    .gallery .gcard:nth-child(1) img{height:240px;}
-    .footer-grid{grid-template-columns:1fr;}
-    .form-row{grid-template-columns:1fr;}
-    .disco-row{grid-template-columns:80px 1fr; gap:16px;}
-    .disco-price, .rsvp{grid-column:2; justify-self:start;}
-    .ticket-summary{grid-template-columns:1fr;}
-    .modal-hero{flex-direction:column; text-align:center;}
-    .modal-social{justify-content:center;}
-  }
-  @media (max-width:600px){ .section{padding:72px 0;} }
-</style>
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+      font-family:"Permanent Marker",cursive;
+      font-size:23px;
+      letter-spacing:-.045em;
+    }
+
+    .brand-icon{
+      height:30px;
+      width:30px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:var(--red);
+      color:#fff;
+      font:20px Anton,sans-serif;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:23px;
+    }
+
+    .nav-links a{
+      font:11px "DM Mono",monospace;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#ded5d0;
+    }
+
+    .nav-links a:hover{color:var(--red-hot)}
+    .nav-links .nav-cta{
+      color:#111;
+      background:var(--cream);
+      border-radius:99px;
+      padding:11px 16px;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:flex-end;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      padding:140px 0 60px;
+    }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      z-index:-3;
+      background:
+        linear-gradient(90deg,rgba(5,4,4,.96) 0%,rgba(5,4,4,.7) 43%,rgba(5,4,4,.15) 100%),
+        linear-gradient(0deg,rgba(5,4,4,.9),transparent 55%),
+        url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=2000&q=88") center/cover;
+      filter:contrast(1.08) saturate(.72);
+    }
+
+    .hero-glow{
+      position:absolute;
+      z-index:-2;
+      top:120px;
+      right:-100px;
+      height:540px;
+      width:540px;
+      border-radius:50%;
+      background:radial-gradient(circle at 35% 30%,#ff4b37,#b00808 35%,#390000 70%);
+      opacity:.64;
+      mix-blend-mode:screen;
+      filter:blur(2px);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:45px;
+      align-items:end;
+      width:100%;
+    }
+
+    .hero-kicker{margin-bottom:19px;color:#ddd1ca}
+    .hero h1{font-size:clamp(76px,12vw,185px)}
+    .hero .red{color:var(--red-hot)}
+    .hero .stroke{
+      color:transparent;
+      -webkit-text-stroke:1px rgba(255,255,255,.72);
+    }
+
+    .hero-actions{
+      display:flex;
+      align-items:center;
+      gap:13px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .hero-player{
+      justify-self:end;
+      width:min(100%,410px);
+      padding:22px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(9,7,7,.52);
+      backdrop-filter:blur(15px);
+    }
+
+    .live-label{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      color:var(--red-hot);
+      margin-bottom:15px;
+    }
+
+    .live-dot{
+      height:8px;
+      width:8px;
+      border-radius:50%;
+      background:var(--red-hot);
+      box-shadow:0 0 0 5px rgba(255,55,55,.14);
+      animation:blink 1.2s infinite;
+    }
+
+    @keyframes blink{
+      50%{transform:scale(.65);opacity:.4}
+    }
+
+    .hero-player > p{font-size:14px;color:#d5cbc6}
+    .mini-track{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+    }
+
+    .mini-cover{
+      height:48px;
+      width:48px;
+      overflow:hidden;
+      flex:none;
+      border-radius:9px;
+    }
+
+    .track-title{font-size:12px;font-weight:700}
+    .track-sub{color:var(--muted);font-size:11px;margin-top:4px}
+
+    .bars{
+      height:23px;
+      display:flex;
+      align-items:center;
+      gap:3px;
+      margin-left:auto;
+    }
+
+    .bars i{
+      width:3px;
+      display:block;
+      border-radius:4px;
+      background:var(--red-hot);
+      animation:bars 1s ease-in-out infinite;
+    }
+
+    .bars i:nth-child(1){height:7px}
+    .bars i:nth-child(2){height:19px;animation-delay:.12s}
+    .bars i:nth-child(3){height:12px;animation-delay:.24s}
+    .bars i:nth-child(4){height:21px;animation-delay:.36s}
+    .bars i:nth-child(5){height:8px;animation-delay:.48s}
+
+    @keyframes bars{50%{transform:scaleY(.35)}}
+
+    /* TICKER */
+    .ticker{
+      overflow:hidden;
+      white-space:nowrap;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:var(--red);
+    }
+
+    .ticker-track{
+      display:inline-block;
+      padding:14px 0;
+      font:500 13px "DM Mono",monospace;
+      letter-spacing:.08em;
+      animation:scrollTicker 25s linear infinite;
+    }
+
+    .ticker-track span{margin:0 24px}
+    @keyframes scrollTicker{to{transform:translateX(-50%)}}
+
+    /* ABOUT */
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1.08fr;
+      gap:80px;
+      align-items:center;
+    }
+
+    .about-copy > p{
+      max-width:510px;
+      color:#cabeba;
+      font-size:17px;
+      margin-top:24px;
+    }
+
+    .sticker{
+      display:inline-block;
+      margin-top:27px;
+      padding:12px 14px;
+      background:var(--red);
+      transform:rotate(-4deg);
+      font:12px "DM Mono",monospace;
+      letter-spacing:.06em;
+    }
+
+    .photo-stack{
+      min-height:500px;
+      position:relative;
+    }
+
+    .photo-main{
+      position:absolute;
+      width:77%;
+      height:425px;
+      right:0;
+      top:0;
+      overflow:hidden;
+      border-radius:16px;
+      transform:rotate(2deg);
+    }
+
+    .photo-small{
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:44%;
+      height:238px;
+      padding:8px;
+      background:var(--cream);
+      transform:rotate(-6deg);
+    }
+
+    .photo-small img{
+      height:100%;
+      filter:grayscale(1) contrast(1.08);
+    }
+
+    /* SERVICES */
+    .services{
+      background:linear-gradient(135deg,#210808 0%,#090707 66%);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+      margin-top:50px;
+    }
+
+    .service{
+      position:relative;
+      overflow:hidden;
+      min-height:310px;
+      padding:26px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--glass);
+      transition:border-color .25s,transform .25s;
+    }
+
+    .service:hover{
+      border-color:var(--red);
+      transform:translateY(-5px);
+    }
+
+    .service::before{
+      content:attr(data-no);
+      position:absolute;
+      right:12px;
+      top:-31px;
+      color:rgba(255,255,255,.045);
+      font:170px Anton,sans-serif;
+    }
+
+    .service h3{font-size:44px;position:relative}
+    .service p{font-size:13px;color:var(--muted);margin-top:12px;position:relative}
+    .service .price{color:var(--red-hot);margin-top:18px;position:relative}
+
+    /* ARTISTS */
+    .artists-head{
+      display:flex;
+      justify-content:space-between;
+      gap:25px;
+      align-items:flex-end;
+    }
+
+    .artist-copy{
+      max-width:360px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .artist-filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:38px;
+      margin-bottom:24px;
+    }
+
+    .filter-btn{
+      border:1px solid var(--line);
+      color:#d9d0ca;
+      border-radius:99px;
+      padding:10px 14px;
+      background:transparent;
+      font:10px "DM Mono",monospace;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active{
+      background:var(--red);
+      border-color:var(--red);
+      color:#fff;
+    }
+
+    .artist-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .artist-card{
+      min-height:430px;
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+      border-radius:15px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      transition:transform .28s ease,border-color .28s ease;
+    }
+
+    .artist-card:hover{
+      transform:translateY(-7px);
+      border-color:var(--red-hot);
+    }
+
+    .artist-card.hidden{display:none}
+
+    .artist-card img{
+      height:100%;
+      position:absolute;
+      inset:0;
+      filter:grayscale(.26) contrast(1.08);
+      transition:transform .5s ease,filter .5s ease;
+    }
+
+    .artist-card:hover img{
+      transform:scale(1.07);
+      filter:grayscale(0) contrast(1.08);
+    }
+
+    .artist-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(4,3,3,.95),rgba(4,3,3,.03) 70%);
+    }
+
+    .artist-tag{
+      position:absolute;
+      z-index:2;
+      top:13px;
+      left:13px;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:99px;
+      padding:7px 9px;
+      background:rgba(0,0,0,.3);
+      backdrop-filter:blur(9px);
+      font:10px "DM Mono",monospace;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+    }
+
+    .artist-info{
+      position:absolute;
+      z-index:2;
+      left:18px;
+      right:18px;
+      bottom:17px;
+    }
+
+    .artist-info h3{font-size:37px}
+    .artist-info p{margin-top:7px;color:#cbc0ba;font-size:12px}
+    .artist-open{
+      display:inline-flex;
+      margin-top:13px;
+      font:10px "DM Mono",monospace;
+      color:var(--red-hot);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    /* LIVE STREAM */
+    .stream-section{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 82% 15%,rgba(216,9,9,.34),transparent 24%),
+        linear-gradient(135deg,#120707,#080707);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .stream-grid{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:22px;
+      align-items:stretch;
+      margin-top:45px;
+    }
+
+    .stream-player{
+      position:relative;
+      min-height:465px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:#050505;
+    }
+
+    .stream-player iframe{
+      width:100%;
+      height:100%;
+      min-height:465px;
+      border:0;
+    }
+
+    .stream-placeholder{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:25px;
+      background:
+        linear-gradient(rgba(5,4,4,.4),rgba(5,4,4,.85)),
+        url("https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1200&q=85") center/cover;
+    }
+
+    .stream-placeholder .play{
+      width:70px;
+      height:70px;
+      display:grid;
+      place-items:center;
+      margin:0 auto 17px;
+      border-radius:50%;
+      background:var(--red);
+      box-shadow:0 0 0 11px rgba(255,45,45,.14);
+      font-size:24px;
+      padding-left:4px;
+    }
+
+    .stream-placeholder h3{font-size:46px}
+    .stream-placeholder p{font-size:13px;color:#ded2cc;margin-top:12px}
+
+    .stream-badge{
+      position:absolute;
+      z-index:3;
+      top:16px;
+      left:16px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:#d90909;
+      padding:9px 11px;
+      border-radius:7px;
+      font:10px "DM Mono",monospace;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .stream-side{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .stream-panel{
+      flex:1;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.04);
+    }
+
+    .stream-panel h3{font-size:28px}
+    .stream-panel > p{font-size:13px;color:var(--muted);margin-top:11px}
+
+    .stream-meta{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:22px;
+    }
+
+    .stream-meta div{
+      padding:12px;
+      border-radius:9px;
+      background:#0c0909;
+      border:1px solid var(--line);
+    }
+
+    .stream-meta b{
+      display:block;
+      color:var(--red-hot);
+      font:17px Anton,sans-serif;
+      letter-spacing:.04em;
+    }
+
+    .stream-meta span{
+      color:var(--muted);
+      font:9px "DM Mono",monospace;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .chat-list{
+      display:flex;
+      flex-direction:column;
+      gap:13px;
+      max-height:190px;
+      overflow:auto;
+      margin-top:18px;
+      padding-right:5px;
+    }
+
+    .chat-message{
+      color:#d6cbc5;
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    .chat-message b{
+      display:block;
+      margin-bottom:2px;
+      color:var(--red-hot);
+      font:10px "DM Mono",monospace;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .stream-buttons{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+
+    /* DISCO */
+    .disco{
+      overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(90deg,rgba(8,6,6,.93),rgba(8,6,6,.42)),
+        url("https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1800&q=85") center/cover;
+    }
+
+    .disco::after{
+      content:"SILENT";
+      position:absolute;
+      bottom:-65px;
+      right:-20px;
+      pointer-events:none;
+      color:rgba(255,255,255,.055);
+      font:clamp(155px,25vw,380px) Anton,sans-serif;
+    }
+
+    .disco-content{max-width:790px;position:relative;z-index:1}
+    .disco-content > p:not(.eyebrow){
+      max-width:540px;
+      margin-top:23px;
+      color:#d3c7c1;
+    }
+
+    .event-card{
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      max-width:810px;
+      margin-top:37px;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(10,7,7,.67);
+      backdrop-filter:blur(14px);
+    }
+
+    .event-date{
+      min-width:70px;
+      text-align:center;
+      color:var(--red-hot);
+      font:42px Anton,sans-serif;
+      line-height:.8;
+    }
+
+    .event-date small{
+      display:block;
+      margin-top:8px;
+      color:#fff;
+      font:10px "DM Mono",monospace;
+      letter-spacing:.1em;
+    }
+
+    .event-info b{font-size:15px}
+    .event-info p{margin-top:6px;font-size:12px;color:#bbaea8}
+
+    /* BOOKING */
+    .booking-grid{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:70px;
+      align-items:start;
+    }
+
+    .booking-copy > p{
+      max-width:390px;
+      margin-top:23px;
+      color:var(--muted);
+    }
+
+    .price-list{margin-top:30px;border-top:1px solid var(--line)}
+
+    .price-list div{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+      font:11px "DM Mono",monospace;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .price-list span:last-child{color:var(--red-hot)}
+
+    form{
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--panel);
+    }
+
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{margin-bottom:15px}
+
+    label{
+      display:block;
+      margin-bottom:8px;
+      color:var(--muted);
+      font:10px "DM Mono",monospace;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    input,select,textarea{
+      width:100%;
+      padding:13px;
+      color:#fff;
+      border:1px solid var(--line);
+      border-radius:7px;
+      outline:0;
+      background:#0c0909;
+    }
+
+    textarea{min-height:95px;resize:vertical}
+    input:focus,select:focus,textarea:focus{border-color:var(--red-hot)}
+
+    /* GALLERY */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:1.25fr .8fr .8fr;
+      grid-template-rows:230px 230px;
+      gap:14px;
+      margin-top:47px;
+    }
+
+    .gallery-item{
+      min-height:180px;
+      position:relative;
+      overflow:hidden;
+      border-radius:14px;
+      background:var(--panel);
+    }
+
+    .gallery-item:first-child{grid-row:span 2}
+    .gallery-item:nth-child(4){grid-column:span 2}
+    .gallery-item img{
+      height:100%;
+      filter:grayscale(.28) contrast(1.08);
+      transition:transform .5s,filter .5s;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.07);
+      filter:none;
+    }
+
+    .gallery-item span{
+      position:absolute;
+      bottom:13px;
+      left:13px;
+      padding:7px 9px;
+      border-radius:5px;
+      background:rgba(5,4,4,.72);
+      font:10px "DM Mono",monospace;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    /* FOOTER */
+    footer{
+      padding:65px 0 25px;
+      border-top:1px solid var(--line);
+      background:#080606;
+    }
+
+    .footer-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .footer-title{
+      font:clamp(48px,7vw,96px) Anton,sans-serif;
+      line-height:.85;
+      text-transform:uppercase;
+    }
+
+    .footer-info{
+      color:var(--muted);
+      font-size:13px;
+      line-height:2;
+    }
+
+    .footer-info a:hover{color:var(--red-hot)}
+
+    .footer-bottom{
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:60px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:#7b6d68;
+      font:10px "DM Mono",monospace;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+    }
+
+    /* ARTIST MODAL */
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:300;
+      inset:0;
+      padding:20px;
+      overflow:auto;
+      background:rgba(0,0,0,.82);
+      backdrop-filter:blur(10px);
+    }
+
+    .modal.open{display:grid;place-items:center}
+
+    .modal-box{
+      position:relative;
+      width:min(880px,100%);
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#151010;
+      box-shadow:0 30px 100px rgba(0,0,0,.6);
+    }
+
+    .modal-image{min-height:520px}
+    .modal-image img{height:100%;filter:grayscale(.14) contrast(1.06)}
+
+    .modal-content{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:42px;
+    }
+
+    .modal-close{
+      position:absolute;
+      z-index:2;
+      top:14px;
+      right:14px;
+      height:38px;
+      width:38px;
+      color:#fff;
+      border:1px solid var(--line);
+      border-radius:50%;
+      background:rgba(0,0,0,.45);
+      font-size:20px;
+    }
+
+    .modal-genre{color:var(--red-hot);margin-bottom:14px}
+    .modal-content h2{font-size:66px}
+    .modal-bio{margin-top:18px;color:#c9bdb7;font-size:14px}
+    .modal-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+
+    @media(max-width:950px){
+      .artist-grid{grid-template-columns:repeat(2,1fr)}
+      .stream-grid{grid-template-columns:1fr}
+    }
+
+    @media(max-width:850px){
+      .nav-links a:not(.nav-cta){display:none}
+      .hero-grid,.about-grid,.booking-grid{grid-template-columns:1fr}
+      .hero-player{justify-self:start}
+      .service-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+      .gallery-item:first-child{grid-row:span 2}
+      .gallery-item:nth-child(4){grid-column:span 2}
+      .footer-top{flex-direction:column}
+    }
+
+    @media(max-width:600px){
+      .wrap{width:min(100% - 28px,1240px)}
+      .section{padding:80px 0}
+      .hero{padding:130px 0 40px}
+      .hero h1{font-size:76px}
+      .artists-head{display:block}
+      .artist-copy{margin-top:18px}
+      .artist-grid{grid-template-columns:1fr}
+      .artist-card{min-height:390px}
+      .form-row{grid-template-columns:1fr}
+      .event-card{grid-template-columns:1fr;gap:13px}
+      .event-date{text-align:left}
+      .gallery-grid{display:flex;flex-direction:column}
+      .gallery-item,.gallery-item:first-child{height:240px}
+      .photo-stack{min-height:380px}
+      .photo-main{height:310px;width:82%}
+      .photo-small{height:170px}
+      .stream-player,.stream-player iframe{min-height:360px}
+      .modal-box{grid-template-columns:1fr}
+      .modal-image{min-height:300px;max-height:350px}
+      .modal-content{padding:30px 23px}
+      .modal-content h2{font-size:52px}
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <nav class="wrap">
-    <a href="#top" class="logo">
-      <span class="mark"><svg viewBox="0 0 512 512" aria-hidden="true"><path fill="var(--accent)" d="M263 138c0-8 6-14 14-14s14 6 14 14v14h10v-14c0-8 6-14 14-14s14 6 14 14v98c0 8-6 14-14 14s-14-6-14-14v-14h-10v14c0 8-6 14-14 14s-14-6-14-14zm18 138c30-8 60 6 74 34 16 32 4 72-28 90-40 22-92-2-100-46-4-22 2-44 16-60l-118-70c-8-4-10-14-6-22s14-10 22-6l118 70c8-6 18-10 22-12zm4 42c-16 6-24 24-18 40s24 24 40 18 24-24 18-40-24-24-40-18z"/></svg></span>
-      G.House
-    </a>
-    <div class="nav-right">
-      <div class="navlinks">
-        <a href="#live">Live</a>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#top" aria-label="G.House Records home">
+        <span class="brand-icon">G</span>
+        G.House Records
+      </a>
+
+      <div class="nav-links">
+        <a href="#studio">Studio</a>
         <a href="#artists">Artists</a>
-        <a href="#booking">Book Studio</a>
-        <a href="#disco">Silent Disco</a>
-        <a href="#tickets">Tickets</a>
+        <a href="#live">Live</a>
+        <a href="#disco">Disco</a>
+        <a href="#booking">Book</a>
+        <a class="nav-cta" href="#booking">Book a session ↗</a>
       </div>
-      <a class="ig-btn" href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener">@ghouserecordsug</a>
-      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
-        <span class="icon-sun" aria-hidden="true">☀</span>
-        <span class="icon-moon" aria-hidden="true">☾</span>
-      </button>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
-<main id="top">
+  <main id="top">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg-glow" aria-hidden="true"></div>
-    <svg class="hero-ghost" viewBox="0 0 512 512" aria-hidden="true"><path fill="var(--accent)" d="M263 138c0-8 6-14 14-14s14 6 14 14v14h10v-14c0-8 6-14 14-14s14 6 14 14v98c0 8-6 14-14 14s-14-6-14-14v-14h-10v14c0 8-6 14-14 14s-14-6-14-14zm18 138c30-8 60 6 74 34 16 32 4 72-28 90-40 22-92-2-100-46-4-22 2-44 16-60l-118-70c-8-4-10-14-6-22s14-10 22-6l118 70c8-6 18-10 22-12zm4 42c-16 6-24 24-18 40s24 24 40 18 24-24 18-40-24-24-40-18z"/></svg>
-    <div class="wrap hero-inner">
-      <div class="hero-left">
-        <span class="hero-tag"><span class="dot"></span> KIWATULE, KAMPALA · STUDIO &amp; LABEL</span>
-        <h1><span class="line">WHERE THE</span><span class="line grad">SOUND</span><span class="line">GETS MADE.</span></h1>
-        <p class="hero-sub">G.House Records is a working studio in Kiwatule — tracking, mixing &amp; mastering day in, day out. Once a month, the floor clears for a silent disco night.</p>
-        <div class="hero-cta">
-          <a href="#booking" class="btn btn-solid">Book a session →</a>
-          <a href="#live" class="btn btn-ghost">▶ Watch live</a>
-        </div>
-        <div class="hero-stats">
-          <div class="hs-item"><div class="num">2021</div><div class="lbl">Running since</div></div>
-          <div class="hs-item"><div class="num">12+</div><div class="lbl">Signed artists</div></div>
-          <div class="hs-item"><div class="num">Monthly</div><div class="lbl">Silent disco</div></div>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="player-card">
-          <div class="player-art">
-            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" alt="Now playing at G.House">
-            <span class="now"><span class="eqmini"><i></i><i></i><i></i></span> NOW TRACKING</span>
-          </div>
-          <div class="player-meta">
-            <div class="track">Kiwatule Nights</div>
-            <div class="artist">G.House Sessions · Live from the booth</div>
-          </div>
-          <div class="player-progress"><i></i></div>
-          <div class="player-controls">
-            <button aria-label="Previous">⏮</button>
-            <button class="play" id="playToggle" aria-label="Play / pause">▶</button>
-            <button aria-label="Next">⏭</button>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-glow"></div>
+
+      <div class="wrap hero-grid">
+        <div>
+          <p class="hero-kicker mono">Kiwatule, Kampala · Uganda</p>
+
+          <h1>
+            MAKE<br>
+            IT <span class="red">LOUD.</span><br>
+            MAKE IT <span class="stroke">GHOUSE.</span>
+          </h1>
+
+          <div class="hero-actions">
+            <a class="btn btn-red" href="#booking">Book studio time →</a>
+            <a class="btn btn-outline" href="#live">Watch live sessions</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
+        <aside class="hero-player">
+          <div class="live-label mono">
+            <span class="live-dot"></span>
+            In session / Kiwatule
+          </div>
 
-  <!-- LIVE STREAM -->
-  <section class="section live" id="live">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Straight from the Booth</p>
-        <h2>Live <span class="script">Streaming</span></h2>
-        <p>Sessions, listening parties and disco nights — streamed live from Kiwatule. Tune in when the light's on.</p>
-      </div>
-      <div class="live-grid">
-        <div class="live-stage">
-          <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=1000&q=80" alt="Live from G.House studio">
-          <div class="live-overlay">
-            <span class="live-badge" id="liveBadge"><span class="lp"></span> LIVE NOW</span>
-            <div class="live-bottom">
-              <h3>Friday Night Sessions</h3>
-              <p>Live tracking with the G.House band · Kiwatule</p>
-              <span class="live-viewers">👁 <b id="viewerCount">327</b> watching</span>
+          <p>
+            A creative home for artists, producers, writers and people moving Kampala culture forward.
+          </p>
+
+          <div class="mini-track">
+            <div class="mini-cover">
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=200&q=80" alt="G.House session cover">
+            </div>
+
+            <div>
+              <div class="track-title">GHOUSE AFTER HOURS</div>
+              <div class="track-sub">Live Room · Session 024</div>
+            </div>
+
+            <div class="bars" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i>
             </div>
           </div>
-          <button class="live-play" id="livePlay" aria-label="Play live stream">▶</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>GHOUSE RECORDS</span> ✦
+        <span>RECORDING SESSIONS</span> ✦
+        <span>ARTIST DEVELOPMENT</span> ✦
+        <span>LIVE FROM KIWATULE</span> ✦
+        <span>SILENT DISCO MONTHLY</span> ✦
+        <span>GHOUSE RECORDS</span> ✦
+        <span>RECORDING SESSIONS</span> ✦
+        <span>ARTIST DEVELOPMENT</span> ✦
+        <span>LIVE FROM KIWATULE</span> ✦
+        <span>SILENT DISCO MONTHLY</span> ✦
+      </div>
+    </section>
+
+    <section class="section" id="studio">
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <p class="eyebrow mono">The house sound</p>
+          <h2>FROM THE<br>BOOTH TO<br>THE BLOCK.</h2>
+
+          <p>
+            G.House Records is a recording studio, artist home and creative space built for Kampala’s next sound. Come in with the idea. Leave with something people can feel.
+          </p>
+
+          <span class="sticker">MADE IN KIWATULE / PLAYED EVERYWHERE</span>
         </div>
-        <div class="live-side">
-          <span class="sh">Up next &amp; replays</span>
-          <div class="stream-item">
-            <img class="stream-thumb" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&q=80" alt="">
-            <div class="stream-info"><h4>Silent Disco Livestream</h4><p><span class="tag">SAT 8PM</span> · Scheduled</p></div>
+
+        <div class="photo-stack">
+          <div class="photo-main">
+            <img src="https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?auto=format&fit=crop&w=1100&q=85" alt="Artist recording in the studio">
           </div>
-          <div class="stream-item">
-            <img class="stream-thumb" src="https://images.unsplash.com/photo-1571266028243-e4bb35c0b13a?w=300&q=80" alt="">
-            <div class="stream-info"><h4>Vocal Booth Takes</h4><p><span class="tag">REPLAY</span> · 1.2k views</p></div>
-          </div>
-          <div class="stream-item">
-            <img class="stream-thumb" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&q=80" alt="">
-            <div class="stream-info"><h4>Behind the Desk: Mixing</h4><p><span class="tag">REPLAY</span> · 860 views</p></div>
-          </div>
-          <div class="notify-box">
-            <p>Get a text when we go live.</p>
-            <form class="notify-row" id="notifyForm">
-              <input type="tel" id="notifyPhone" placeholder="07XX XXX XXX" required>
-              <button type="submit">Notify me</button>
-            </form>
+
+          <div class="photo-small">
+            <img src="https://images.unsplash.com/photo-1571266028243-e4bb35c0b13a?auto=format&fit=crop&w=600&q=85" alt="Studio microphone">
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ARTISTS -->
-  <section class="section" id="artists">
+    <section class="section services">
+      <div class="wrap">
+        <p class="eyebrow mono">What we do</p>
+        <h2>GET YOUR<br>SOUND RIGHT.</h2>
+
+        <div class="service-grid">
+          <article class="service" data-no="01">
+            <h3>Record</h3>
+            <p>Vocals, demos, songwriting sessions, full projects and proper late-night creative blocks.</p>
+            <span class="price mono">From UGX 30,000 / 2 hrs</span>
+          </article>
+
+          <article class="service" data-no="02">
+            <h3>Mix</h3>
+            <p>We shape the details so your song carries in headphones, cars, clubs and on every platform.</p>
+            <span class="price mono">UGX 150,000 / track</span>
+          </article>
+
+          <article class="service" data-no="03">
+            <h3>Master</h3>
+            <p>Final polish, energy and release-ready loudness for records that translate everywhere.</p>
+            <span class="price mono">UGX 80,000 / track</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTISTS -->
+    <section class="section" id="artists">
+      <div class="wrap">
+        <div class="artists-head">
+          <div>
+            <p class="eyebrow mono">The G.House family</p>
+            <h2>MEET THE<br>ARTISTS.</h2>
+          </div>
+
+          <p class="artist-copy">
+            The voices, sounds and worlds being built in and around G.House. Tap an artist to open their profile.
+          </p>
+        </div>
+
+        <div class="artist-filters" aria-label="Filter artists by genre">
+          <button class="filter-btn active" type="button" data-filter="all">All artists</button>
+          <button class="filter-btn" type="button" data-filter="afrobeats">Afrobeats</button>
+          <button class="filter-btn" type="button" data-filter="hiphop">Hip-hop</button>
+          <button class="filter-btn" type="button" data-filter="rnb">R&B / Soul</button>
+          <button class="filter-btn" type="button" data-filter="alternative">Alternative</button>
+        </div>
+
+        <div class="artist-grid">
+
+          <article class="artist-card" data-genre="afrobeats" data-name="KAIRO" data-style="Afrobeats · Afro-fusion" data-image="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" data-bio="KAIRO brings warm melodies, sharp hooks and Kampala night-drive energy. Her sound moves between Afrobeats, Afro-fusion and intimate pop writing.">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="KAIRO artist portrait">
+            <span class="artist-tag">Afrobeats</span>
+            <div class="artist-info">
+              <h3>KAIRO</h3>
+              <p>Afro-fusion for after dark.</p>
+              <span class="artist-open">Open profile →</span>
+            </div>
+          </article>
+
+          <article class="artist-card" data-genre="hiphop" data-name="SAINT MILES" data-style="Hip-hop · Rap" data-image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85" data-bio="Saint Miles writes with honesty, pressure and a clean eye for detail. Bar-heavy rap built from Kampala stories, sharp production and no filler.">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85" alt="Saint Miles artist portrait">
+            <span class="artist-tag">Hip-hop</span>
+            <div class="artist-info">
+              <h3>SAINT<br>MILES</h3>
+              <p>Bars for the city that raised him.</p>
+              <span class="artist-open">Open profile →</span>
+            </div>
+          </article>
+
+          <article class="artist-card" data-genre="rnb" data-name="NIA JUNE" data-style="R&B · Soul" data-image="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=85" data-bio="Nia June lives in the space between soft vocals, heavy feeling and slow-burning soul. A voice made for the late hours and the repeat button.">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=85" alt="Nia June artist portrait">
+            <span class="artist-tag">R&B / Soul</span>
+            <div class="artist-info">
+              <h3>NIA<br>JUNE</h3>
+              <p>Soft voice. Heavy feeling.</p>
+              <span class="artist-open">Open profile →</span>
+            </div>
+          </article>
+
+          <article class="artist-card" data-genre="alternative" data-name="NOVA KID" data-style="Alternative · Electronic" data-image="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85" data-bio="Nova Kid pulls from electronic music, alt-pop and left-field African rhythm. Experimental, visual and never in one lane for too long.">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85" alt="Nova Kid artist portrait">
+            <span class="artist-tag">Alternative</span>
+            <div class="artist-info">
+              <h3>NOVA<br>KID</h3>
+              <p>Future sounds from Kampala.</p>
+              <span class="artist-open">Open profile →</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE STREAM -->
+    <section class="section stream-section" id="live">
+      <div class="wrap">
+        <p class="eyebrow mono">G.House Live</p>
+        <h2>STRAIGHT<br>FROM THE ROOM.</h2>
+
+        <div class="stream-grid">
+          <div class="stream-player">
+            <div class="stream-badge">
+              <span class="live-dot"></span>
+              Live sessions
+            </div>
+
+            <!-- Replace this placeholder with your actual YouTube embed.
+              Example:
+              <iframe
+                src="https://www.youtube.com/embed/LIVE_VIDEO_ID?autoplay=0"
+                title="G.House Records Live Stream"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            -->
+
+            <div class="stream-placeholder" id="streamPlaceholder">
+              <div>
+                <div class="play">▶</div>
+                <h3>GHOUSE LIVE</h3>
+                <p>Live sessions, artist conversations and behind-the-scenes moments from Kiwatule.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="stream-side">
+            <div class="stream-panel">
+              <h3>ON AIR / 024</h3>
+              <p>
+                Tonight’s room: stripped-back performances, fresh records and the people behind the sound.
+              </p>
+
+              <div class="stream-meta">
+                <div>
+                  <b>08:00</b>
+                  <span>Next stream</span>
+                </div>
+                <div>
+                  <b>LIVE</b>
+                  <span>From Kiwatule</span>
+                </div>
+              </div>
+
+              <div class="stream-buttons">
+                <a class="btn btn-red" href="https://www.instagram.com/ghouserecordsug/" target="_blank" rel="noopener">Follow for alerts ↗</a>
+                <a class="btn btn-outline" href="#artists">Meet artists</a>
+              </div>
+            </div>
+
+            <div class="stream-panel">
+              <p class="mono" style="color:var(--red-hot)">Room chat</p>
+
+              <div class="chat-list">
+                <div class="chat-message">
+                  <b>@malia.wav</b>
+                  Need that KAIRO session released ASAP.
+                </div>
+                <div class="chat-message">
+                  <b>@kampalaafterdark</b>
+                  The live room is sounding crazy tonight.
+                </div>
+                <div class="chat-message">
+                  <b>@saintmiles</b>
+                  New verse loading. Don’t sleep.
+                </div>
+                <div class="chat-message">
+                  <b>@housefriend</b>
+                  Silent disco tickets when? 🔥
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SILENT DISCO -->
+    <section class="section disco" id="disco">
+      <div class="wrap disco-content">
+        <p class="eyebrow mono">Monthly culture night</p>
+        <h2>QUIET<br>OUTSIDE.<br><span style="color:var(--red-hot)">LOUD INSIDE.</span></h2>
+
+        <p>
+          Once a month, we clear the studio floor, switch on the headphones and turn G.House into a silent disco. Three channels. One room. Full energy.
+        </p>
+
+        <div class="event-card">
+          <div class="event-date">
+            30
+            <small>AUG · SAT</small>
+          </div>
+
+          <div class="event-info">
+            <b>GHOUSE SILENT DISCO</b>
+            <p>Doors 8PM · G.House Records, Kiwatule · Wireless headset included</p>
+          </div>
+
+          <a class="btn btn-red" href="https://wa.me/256706612367?text=Hi%20G.House%20Records!%20I%20would%20like%20to%20RSVP%20for%20the%20Silent%20Disco." target="_blank" rel="noopener">
+            RSVP →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="section" id="booking">
+      <div class="wrap booking-grid">
+        <div class="booking-copy">
+          <p class="eyebrow mono">Studio booking</p>
+          <h2>LOCK IN<br>YOUR SLOT.</h2>
+
+          <p>
+            Send your preferred date, session type and what you are making. A G.House producer confirms your slot on WhatsApp.
+          </p>
+
+          <div class="price-list">
+            <div><span>Recording / 2 hrs</span><span>30K UGX</span></div>
+            <div><span>Mixing / track</span><span>150K UGX</span></div>
+            <div><span>Mastering / track</span><span>80K UGX</span></div>
+            <div><span>Full day / 8 hrs</span><span>350K UGX</span></div>
+          </div>
+        </div>
+
+        <form id="bookingForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" type="text" required placeholder="Full name">
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone / WhatsApp</label>
+              <input id="phone" type="tel" required placeholder="07XX XXX XXX">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="date">Preferred date</label>
+              <input id="date" type="date" required>
+            </div>
+
+            <div class="field">
+              <label for="time">Preferred time</label>
+              <input id="time" type="time" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="session">Session type</label>
+              <select id="session">
+                <option>Recording</option>
+                <option>Mixing</option>
+                <option>Mastering</option>
+                <option>Full-day studio block</option>
+                <option>Rehearsal / creative session</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="artistsCount">Artists attending</label>
+              <input id="artistsCount" type="number" min="1" value="1">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Tell us the vibe</label>
+            <textarea id="notes" placeholder="Genre, project name, engineer preference, reference tracks..."></textarea>
+          </div>
+
+          <button class="btn btn-light" type="submit">Send booking on WhatsApp →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow mono">From the room</p>
+        <h2>GHOUSE<br>IN MOTION.</h2>
+
+        <div class="gallery-grid">
+          <a class="gallery-item" href="https://www.instagram.com/ghouserecordsug/" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=85" alt="Producer at a mixing desk">
+            <span>@ghouserecordsug</span>
+          </a>
+
+          <a class="gallery-item" href="https://www.instagram.com/ghouserecordsug/" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=700&q=85" alt="Crowd at music event">
+            <span>Silent disco</span>
+          </a>
+
+          <a class="gallery-item" href="https://www.instagram.com/ghouserecordsug/" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=700&q=85" alt="Studio microphone">
+            <span>In the booth</span>
+          </a>
+
+          <a class="gallery-item" href="https://www.instagram.com/ghouserecordsug/" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?auto=format&fit=crop&w=1100&q=85" alt="DJ performance">
+            <span>Make something</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
     <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">The Roster</p>
-        <h2>Meet the <span class="script">Fam</span></h2>
-        <p>The acts signed to and built at G.House. Tap any artist for their story, tracks and socials.</p>
-      </div>
-      <div class="artist-grid" id="artistGrid"></div>
-    </div>
-  </section>
+      <div class="footer-top">
+        <div class="footer-title">GHOUSE<br>RECORDS.</div>
 
-  <!-- ARTIST MODAL -->
-  <div class="modal-overlay" id="artistModal">
-    <div class="modal">
-      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-      <div class="modal-hero">
-        <img id="mImg" src="" alt="">
-        <div>
-          <h3 id="mName"></h3>
-          <div class="role" id="mRole"></div>
-          <div class="genre" id="mGenre"></div>
+        <div class="footer-info">
+          Kiwatule, Kampala, Uganda<br>
+          <a href="https://wa.me/256706612367" target="_blank" rel="noopener">+256 706 612 367</a><br>
+          <a href="mailto:booking@ghouserecords.ug">booking@ghouserecords.ug</a><br>
+          <a href="https://www.instagram.com/ghouserecordsug/" target="_blank" rel="noopener">@ghouserecordsug ↗</a>
         </div>
       </div>
-      <div class="modal-body">
-        <p class="bio-full" id="mBio"></p>
-        <div class="modal-tracks">
-          <div class="sh">Top tracks</div>
-          <div id="mTracks"></div>
+
+      <div class="footer-bottom">
+        <span>© 2026 G.House Records</span>
+        <span>Built in Kiwatule · Made for the culture</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Artist Profile Modal -->
+  <div class="modal" id="artistModal" role="dialog" aria-modal="true" aria-labelledby="modalArtistName">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close artist profile">×</button>
+
+      <div class="modal-image">
+        <img id="modalArtistImage" src="" alt="">
+      </div>
+
+      <div class="modal-content">
+        <p class="modal-genre mono" id="modalArtistGenre"></p>
+        <h2 id="modalArtistName">Artist</h2>
+        <p class="modal-bio" id="modalArtistBio"></p>
+
+        <div class="modal-links">
+          <a class="btn btn-red" id="artistInstagram" href="https://www.instagram.com/ghouserecordsug/" target="_blank" rel="noopener">Follow artist ↗</a>
+          <a class="btn btn-outline" href="#booking" id="modalBookLink">Book a session</a>
         </div>
-        <div class="modal-social" id="mSocial"></div>
       </div>
     </div>
   </div>
 
-  <!-- ABOUT -->
-  <section class="section booking" id="about">
-    <div class="wrap about-grid">
-      <div class="about-copy">
-        <p class="eyebrow" style="margin-bottom:22px;">The Studio</p>
-        <h2>Built in <span class="script">Kiwatule.</span><br>Run from the floor.</h2>
-        <p style="margin-top:22px;"><strong>G.House Records started as a booth in Kiwatule</strong> built for artists who needed somewhere honest to record — no gatekeeping, no rush.</p>
-        <p>Five years on it's a full studio, a small stable of signed acts, and a label that puts out what gets made here. Once a month, the same floor turns into a silent disco.</p>
-        <div class="stat-row">
-          <div class="stat-card"><div class="v">Kiwatule</div><div class="k">Based in</div></div>
-          <div class="stat-card"><div class="v">Daily</div><div class="k">Bookings</div></div>
-        </div>
-      </div>
-      <div class="about-visual">
-        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=80" alt="Producer at the G.House mixing desk">
-        <div class="badge"><span class="k">The room</span><span class="v">Live &amp; Loud</span></div>
-      </div>
-    </div>
-  </section>
+  <script>
+    const WHATSAPP_NUMBER = "256706612367";
 
-  <!-- BOOKING -->
-  <section class="section" id="booking">
-    <div class="wrap booking-grid">
-      <div class="booking-copy">
-        <p class="eyebrow" style="margin-bottom:22px;">The Main Thing</p>
-        <h2 style="margin-bottom:20px;">Book a<br><span class="script">Session</span></h2>
-        <p>The booth that started it all is still booked out most days. Recording, mixing, mastering or full-day blocks — tell us what you need and a producer confirms your slot over WhatsApp.</p>
-        <div class="package-list">
-          <div class="package hl"><span class="p-name">Recording (2 hrs)</span><span class="p-rate">UGX 30,000</span></div>
-          <div class="package"><span class="p-name">Mixing (per track)</span><span class="p-rate">UGX 150,000</span></div>
-          <div class="package"><span class="p-name">Mastering (per track)</span><span class="p-rate">UGX 80,000</span></div>
-          <div class="package"><span class="p-name">Full day block (8hrs)</span><span class="p-rate">UGX 350,000</span></div>
-        </div>
-      </div>
-      <form id="bookingForm">
-        <div class="form-row">
-          <div class="field"><label for="b-name">Your name</label><input id="b-name" type="text" required placeholder="Full name"></div>
-          <div class="field"><label for="b-phone">Phone / WhatsApp</label><input id="b-phone" type="tel" required placeholder="07XX XXX XXX"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label for="b-date">Preferred date</label><input id="b-date" type="date" required></div>
-          <div class="field"><label for="b-time">Preferred time</label><input id="b-time" type="time" required></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label for="b-package">Session type</label><select id="b-package"><option>Recording</option><option>Mixing</option><option>Mastering</option><option>Full day block</option><option>Rehearsal space</option></select></div>
-          <div class="field"><label for="b-artists">Number of artists</label><input id="b-artists" type="number" min="1" value="1"></div>
-        </div>
-        <div class="field"><label for="b-notes">Anything the producer should know</label><textarea id="b-notes" placeholder="Genre, reference tracks, engineer preference…"></textarea></div>
-        <div class="submit-row">
-          <button type="submit" class="btn btn-solid">Send booking request →</button>
-          <span class="form-note">Opens WhatsApp with your details pre-filled.<br>A producer confirms the slot within a day.</span>
-        </div>
-      </form>
-    </div>
-  </section>
+    /* Booking WhatsApp flow */
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+      event.preventDefault();
 
-  <!-- SILENT DISCO -->
-  <section class="section" id="disco">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Once a Month</p>
-        <h2>Silent Disco <span class="script">Night</span></h2>
-        <p>One Saturday a month, the studio floor clears and the headsets come out. Quiet outside, loud inside.</p>
-      </div>
-      <div class="countdown" id="countdown" aria-label="Countdown to next disco night">
-        <div class="cd-box"><div class="n" id="cd-days">--</div><div class="l">Days</div></div>
-        <div class="cd-box"><div class="n" id="cd-hours">--</div><div class="l">Hours</div></div>
-        <div class="cd-box"><div class="n" id="cd-mins">--</div><div class="l">Minutes</div></div>
-        <div class="cd-box"><div class="n" id="cd-secs">--</div><div class="l">Seconds</div></div>
-      </div>
-      <div class="disco-list" id="discoList">
-        <div class="disco-row">
-          <div class="disco-date"><span class="dd">SAT</span><span class="dm">30</span></div>
-          <div class="disco-info"><h3>Silent Disco Night · AUG</h3><p>G.House Records Studio, Kiwatule · Doors 8PM</p></div>
-          <div class="disco-price">UGX 30,000</div>
-          <a class="rsvp" href="#" data-event="Silent Disco Night (Sat 30 Aug)">RSVP →</a>
-        </div>
-        <div class="disco-row">
-          <div class="disco-date"><span class="dd">SAT</span><span class="dm">27</span></div>
-          <div class="disco-info"><h3>Silent Disco Night · SEP</h3><p>G.House Records Studio, Kiwatule · Doors 8PM</p></div>
-          <div class="disco-price">UGX 30,000</div>
-          <a class="rsvp" href="#" data-event="Silent Disco Night (Sat 27 Sep)">RSVP →</a>
-        </div>
-        <div class="disco-row">
-          <div class="disco-date"><span class="dd">SAT</span><span class="dm">25</span></div>
-          <div class="disco-info"><h3>Silent Disco Night · OCT</h3><p>G.House Records Studio, Kiwatule · Doors 8PM</p></div>
-          <div class="disco-price">UGX 30,000</div>
-          <a class="rsvp" href="#" data-event="Silent Disco Night (Sat 25 Oct)">RSVP →</a>
-        </div>
-      </div>
-      <p class="disco-note">→ Held the last Saturday of every month. Dates confirmed on Instagram closer to the night.</p>
-    </div>
-  </section>
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const session = document.getElementById("session").value;
+      const artistsCount = document.getElementById("artistsCount").value;
+      const notes = document.getElementById("notes").value.trim();
 
-  <!-- TICKETING -->
-  <section class="section booking" id="tickets">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">For the Next Night</p>
-        <h2>Get <span class="script">Tickets</span></h2>
-        <p>Pick a tier, choose your headcount, and check out over WhatsApp or MTN MoMo. Your reference code is your ticket at the door.</p>
-      </div>
-      <div class="tiers" id="tiersGrid">
-        <div class="tier" data-tier="General" data-price="30000">
-          <span class="tier-name">General Floor</span><span class="tier-price">30k<sup>UGX</sup></span>
-          <ul><li>Entry + wireless headset</li><li>Full night access</li><li>Standing floor</li></ul>
-          <div class="stepper"><button type="button" class="qty-minus">−</button><span class="qty">1</span><button type="button" class="qty-plus">+</button></div>
-          <button class="tier-btn" type="button">Add to order</button>
-        </div>
-        <div class="tier featured" data-tier="VIP Booth" data-price="70000">
-          <span class="tier-name">VIP Booth</span><span class="tier-price">70k<sup>UGX</sup></span>
-          <ul><li>Reserved VIP booth</li><li>Priority headset</li><li>2 house drinks included</li></ul>
-          <div class="stepper"><button type="button" class="qty-minus">−</button><span class="qty">1</span><button type="button" class="qty-plus">+</button></div>
-          <button class="tier-btn" type="button">Add to order</button>
-        </div>
-        <div class="tier" data-tier="Group of 5" data-price="130000">
-          <span class="tier-name">Group of 5</span><span class="tier-price">130k<sup>UGX</sup></span>
-          <ul><li>5 general floor entries</li><li>5 headsets included</li><li>Best for crews &amp; label fam</li></ul>
-          <div class="stepper"><button type="button" class="qty-minus">−</button><span class="qty">1</span><button type="button" class="qty-plus">+</button></div>
-          <button class="tier-btn" type="button">Add to order</button>
-        </div>
-      </div>
-      <div class="ticket-summary">
-        <div>
-          <p class="ref">Order reference <b id="refCode">—</b></p>
-          <div class="momo-steps" id="momoSteps">
-            Select a tier above to generate your reference code, then:<br>
-            <b>1.</b> Send payment via MTN MoMo to <b>+256 706 612 367</b> (G.House Records)<br>
-            <b>2.</b> Use your reference code as the payment comment<br>
-            <b>3.</b> Confirm on WhatsApp — we'll text your e-ticket back
-          </div>
-        </div>
-        <a id="ticketWA" class="btn btn-solid" href="#" target="_blank" rel="noopener">Confirm on WhatsApp →</a>
-      </div>
-    </div>
-  </section>
+      const message = encodeURIComponent(
+        `Hi G.House Records! I would like to book a studio session.\n\n` +
+        `Name: ${name}\n` +
+        `WhatsApp: ${phone}\n` +
+        `Preferred date: ${date}\n` +
+        `Preferred time: ${time}\n` +
+        `Session type: ${session}\n` +
+        `Artists attending: ${artistsCount}\n` +
+        `Notes: ${notes || "None"}`
+      );
 
-  <!-- GALLERY -->
-  <section class="section" id="gallery">
-    <div class="wrap">
-      <div class="section-head"><p class="eyebrow">In the Room</p><h2>The Floor &amp; the <span class="script">Vibe</span></h2></div>
-      <div class="gallery">
-        <a class="gcard" href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=80" alt="Producer at the mixing desk"><span class="cap">On the desk · Kiwatule</span></a>
-        <a class="gcard" href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&q=80" alt="Silent disco headphones"><span class="cap">Silent disco night</span></a>
-        <a class="gcard" href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1571266028243-e4bb35c0b13a?w=700&q=80" alt="Studio mic"><span class="cap">In the booth</span></a>
-        <a class="gcard" href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=700&q=80" alt="DJ set"><span class="cap">DJ set · last Sat</span></a>
-      </div>
-    </div>
-  </section>
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank", "noopener");
+    });
 
-</main>
+    /* Artist genre filter */
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const artistCards = document.querySelectorAll(".artist-card");
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#top" class="logo"><span class="mark"><svg viewBox="0 0 512 512" aria-hidden="true"><path fill="var(--accent)" d="M263 138c0-8 6-14 14-14s14 6 14 14v14h10v-14c0-8 6-14 14-14s14 6 14 14v98c0 8-6 14-14 14s-14-6-14-14v-14h-10v14c0 8-6 14-14 14s-14-6-14-14zm18 138c30-8 60 6 74 34 16 32 4 72-28 90-40 22-92-2-100-46-4-22 2-44 16-60l-118-70c-8-4-10-14-6-22s14-10 22-6l118 70c8-6 18-10 22-12zm4 42c-16 6-24 24-18 40s24 24 40 18 24-24 18-40-24-24-40-18z"/></svg></span> G.House Records</a>
-        <p>Recording studio and label in Kiwatule, Kampala — with live streams and a silent disco night once a month.</p>
-      </div>
-      <div class="foot-col">
-        <span class="k">Visit</span><span>Kiwatule, Kampala, Uganda</span>
-        <span class="k" style="margin-top:10px;">Contact</span>
-        <a href="https://wa.me/256706612367" target="_blank" rel="noopener">WhatsApp: +256 706 612 367</a>
-        <a href="mailto:booking@ghouserecords.ug">booking@ghouserecords.ug</a>
-      </div>
-      <div class="foot-col">
-        <span class="k">Follow</span><a href="https://www.instagram.com/ghouserecordsug" target="_blank" rel="noopener">Instagram — @ghouserecordsug</a>
-        <span class="k" style="margin-top:10px;">On this site</span>
-        <a href="#live">Live streaming</a><a href="#artists">Artists</a><a href="#booking">Studio bookings</a><a href="#tickets">Tickets</a>
-      </div>
-    </div>
-    <div class="footer-bottom"><span>© 2026 G.House Records, Kiwatule.</span><span>Built for the studio, run from the floor.</span></div>
-  </div>
-</footer>
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const selectedFilter = button.dataset.filter;
 
-<script>
-  const WHATSAPP_NUMBER = "256706612367";
+        filterButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
 
-  /* ---- MARQUEE ---- */
-  const words = ['RECORDING STUDIO','LIVE STREAMS','MIXING & MASTERING','BOOK A SESSION','KIWATULE','G.HOUSE RECORDS','SILENT DISCO — ONCE A MONTH'];
-  let mHTML='';
-  for(let r=0;r<2;r++){ words.forEach(w=>{ mHTML += `<span><span class="star">✦</span> ${w}</span>`; }); }
-  document.getElementById('marqueeTrack').innerHTML = mHTML;
+        artistCards.forEach(card => {
+          const matches = selectedFilter === "all" || card.dataset.genre === selectedFilter;
+          card.classList.toggle("hidden", !matches);
+        });
+      });
+    });
 
-  /* ---- THEME ---- */
-  document.getElementById('themeToggle').addEventListener('click', ()=>{
-    const isLight = document.documentElement.getAttribute('data-theme')==='light';
-    document.documentElement.setAttribute('data-theme', isLight?'dark':'light');
-  });
+    /* Artist profile modal */
+    const artistModal = document.getElementById("artistModal");
+    const modalClose = document.getElementById("modalClose");
+    const modalArtistImage = document.getElementById("modalArtistImage");
+    const modalArtistName = document.getElementById("modalArtistName");
+    const modalArtistGenre = document.getElementById("modalArtistGenre");
+    const modalArtistBio = document.getElementById("modalArtistBio");
+    const modalBookLink = document.getElementById("modalBookLink");
 
-  /* ---- HERO PLAY ---- */
-  const playToggle=document.getElementById('playToggle'); let playing=false;
-  playToggle.addEventListener('click', ()=>{ playing=!playing; playToggle.textContent=playing?'⏸':'▶'; });
+    artistCards.forEach(card => {
+      card.addEventListener("click", () => {
+        const name = card.dataset.name;
+        const style = card.dataset.style;
+        const image = card.dataset.image;
+        const bio = card.dataset.bio;
 
-  /* ---- LIVE STREAM ---- */
-  const livePlay=document.getElementById('livePlay');
-  const viewerCount=document.getElementById('viewerCount');
-  livePlay.addEventListener('click', ()=>{
-    const msg=encodeURIComponent(`Hi G.House Records! I'd like the link to your current live stream.`);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,'_blank');
-  });
-  // simulate live viewer count fluctuation
-  setInterval(()=>{
-    let v=parseInt(viewerCount.textContent,10);
-    v += Math.floor(Math.random()*11)-5;
-    if(v<120) v=120;
-    viewerCount.textContent=v;
-  },3000);
-  // notify form
-  document.getElementById('notifyForm').addEventListener('submit', e=>{
-    e.preventDefault();
-    const phone=document.getElementById('notifyPhone').value;
-    const msg=encodeURIComponent(`Hi G.House Records! Please text this number (${phone}) when you next go live. Thanks!`);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,'_blank');
-  });
+        modalArtistName.textContent = name;
+        modalArtistGenre.textContent = style;
+        modalArtistBio.textContent = bio;
+        modalArtistImage.src = image;
+        modalArtistImage.alt = `${name} artist portrait`;
 
-  /* ---- ARTISTS DATA ---- */
-  const artists=[
-    {name:"Kato Vibez", role:"Afrobeat · Vocalist", genre:"Afrobeat / Amapiano", img:"https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=600&q=80",
-     bio:"One of the first voices to record in the Kiwatule booth. Kato Vibez blends Afrobeat swing with amapiano log-drums — a G.House staple since day one.",
-     tracks:[{n:"Kampala Sunrise",m:"3:24"},{n:"Log Drum Love",m:"2:58"},{n:"Booth Freestyle",m:"4:10"}],
-     social:[["Instagram","https://www.instagram.com/ghouserecordsug"],["Spotify","#"],["YouTube","#"]]},
-    {name:"Nakato & The Keys", role:"Neo-Soul · Band", genre:"Neo-Soul / Live Band", img:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80",
-     bio:"A live four-piece built around Nakato's vocals and warm Rhodes keys. Their full-band sessions are a fan favourite on the G.House live streams.",
-     tracks:[{n:"Slow Kwanjula",m:"5:02"},{n:"Rhodes at Night",m:"3:47"},{n:"Kiwatule Blues",m:"4:33"}],
-     social:[["Instagram","https://www.instagram.com/ghouserecordsug"],["Spotify","#"]]},
-    {name:"DJ Siro", role:"Producer · Selector", genre:"House / Electronic", img:"https://images.unsplash.com/photo-1544785349-c4a5301826fd?w=600&q=80",
-     bio:"Resident selector for the monthly silent disco. DJ Siro produces the beats that fill the headsets — deep house with a Kampala edge.",
-     tracks:[{n:"Headset Anthem",m:"6:12"},{n:"Last Saturday",m:"5:40"},{n:"Quiet Room Loud",m:"4:55"}],
-     social:[["Instagram","https://www.instagram.com/ghouserecordsug"],["SoundCloud","#"]]},
-    {name:"Maya Flow", role:"Rap · Songwriter", genre:"Hip-Hop / Drill", img:"https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&q=80",
-     bio:"Sharp pen, sharper delivery. Maya Flow came up through G.House open-mic nights and now writes for half the roster.",
-     tracks:[{n:"Kiwatule Drill",m:"2:41"},{n:"No Gatekeeping",m:"3:15"},{n:"Booth Bars",m:"2:59"}],
-     social:[["Instagram","https://www.instagram.com/ghouserecordsug"],["YouTube","#"],["Spotify","#"]]},
-    {name:"Serena B", role:"R&B · Vocalist", genre:"R&B / Afro-fusion", img:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80",
-     bio:"Silky R&B with Luganda hooks. Serena B's debut EP was tracked, mixed and mastered entirely in-house.",
-     tracks:[{n:"Weekend Yaffe",m:"3:33"},{n:"Golden Hour",m:"4:01"},{n:"Stay In",m:"3:50"}],
-     social:[["Instagram","https://www.instagram.com/ghouserecordsug"],["Spotify","#"]]},
-    {name:"The Kiwatule Collective", role:"Group · Rotating", genre:"Afro-fusion / Experimental", img:"https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=600&q=80",
-     bio:"A revolving crew of G.House regulars who jump on tracks together. Never the same lineup twice — always unmistakably Kiwatule.",
-     tracks:[{n:"Collective One",m:"5:18"},{n:"Floor Session",m:"6:44"},{n:"Everybody In",m:"4:27"}],
-     social:[["Instagram","https://www.instagram.com/ghouserecordsug"]]},
-    {name:"Baraka J", role:"Gospel · Vocalist", genre:"Gospel / Worship", img:"https://images.unsplash.com/photo-1508186225823-0963cf9ab0de?w=600&q=80",
-     bio:"Brings Sunday energy to the booth any day of the week. Baraka J's choir arrangements have become a G.House signature.",
-     tracks:[{n:"Webale Nyabo",m:"4:48"},{n:"Lift Him Up",m:"5:30"},{n:"Morning Praise",m:"4:12"}],
-     social:[["Instagram","https://www.instagram.com/ghouserecordsug"],["YouTube","#"]]},
-    {name:"Zaya", role:"Alt-Pop · Producer", genre:"Alt-Pop / Bedroom", img:"https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=600&q=80",
-     bio:"Self-producing alt-pop artist who books late-night blocks to build worlds. The newest signing to the G.House label.",
-     tracks:[{n:"Neon Kampala",m:"3:22"},{n:"Overthink",m:"3:58"},{n:"Static",m:"2:47"}],
-     social:[["Instagram","https://www.instagram.com/ghouserecordsug"],["Spotify","#"]]}
-  ];
+        artistModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+        modalClose.focus();
+      });
+    });
 
-  const grid=document.getElementById('artistGrid');
-  artists.forEach((a,i)=>{
-    const socials=a.social.map(s=>`<a href="${s[1]}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${s[0]}</a>`).join('');
-    const card=document.createElement('div');
-    card.className='artist-card';
-    card.innerHTML=`
-      <div class="artist-photo"><span class="artist-genre">${a.genre}</span><img src="${a.img}" alt="${a.name}"></div>
-      <div class="artist-body">
-        <h3>${a.name}</h3>
-        <div class="role">${a.role}</div>
-        <p class="bio">${a.bio.slice(0,90)}…</p>
-        <div class="artist-social">${socials}</div>
-      </div>`;
-    card.addEventListener('click',()=>openArtist(i));
-    grid.appendChild(card);
-  });
-
-  /* ---- ARTIST MODAL ---- */
-  const modal=document.getElementById('artistModal');
-  function openArtist(i){
-    const a=artists[i];
-    document.getElementById('mImg').src=a.img;
-    document.getElementById('mImg').alt=a.name;
-    document.getElementById('mName').textContent=a.name;
-    document.getElementById('mRole').textContent=a.role;
-    document.getElementById('mGenre').textContent=a.genre;
-    document.getElementById('mBio').textContent=a.bio;
-    document.getElementById('mTracks').innerHTML=a.tracks.map(t=>
-      `<div class="mtrack"><button class="mplay" aria-label="Play">▶</button><span class="mt-name">${t.n}</span><span class="mt-meta">${t.m}</span></div>`).join('');
-    document.getElementById('mSocial').innerHTML=a.social.map(s=>
-      `<a class="btn btn-ghost" href="${s[1]}" target="_blank" rel="noopener" style="padding:11px 20px;font-size:13px;">${s[0]} →</a>`).join('');
-    modal.classList.add('open');
-    document.body.style.overflow='hidden';
-  }
-  function closeArtist(){ modal.classList.remove('open'); document.body.style.overflow=''; }
-  document.getElementById('modalClose').addEventListener('click',closeArtist);
-  modal.addEventListener('click',e=>{ if(e.target===modal) closeArtist(); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeArtist(); });
-  // modal track play buttons (visual toggle)
-  document.getElementById('mTracks').addEventListener('click',e=>{
-    if(e.target.classList.contains('mplay')){
-      const b=e.target; b.textContent = b.textContent==='▶'?'⏸':'▶';
+    function closeArtistModal() {
+      artistModal.classList.remove("open");
+      document.body.style.overflow = "";
     }
-  });
 
-  /* ---- RSVP ---- */
-  document.querySelectorAll('.rsvp').forEach(link=>{
-    link.addEventListener('click', e=>{
-      e.preventDefault();
-      const msg=encodeURIComponent(`Hi G.House Records! I'd like to RSVP for: ${link.dataset.event}. Please send payment details.`);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,'_blank');
+    modalClose.addEventListener("click", closeArtistModal);
+
+    artistModal.addEventListener("click", event => {
+      if (event.target === artistModal) closeArtistModal();
     });
-  });
 
-  /* ---- BOOKING FORM ---- */
-  document.getElementById('bookingForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const g=id=>document.getElementById(id).value;
-    const notes=g('b-notes');
-    const msg=encodeURIComponent(
-      `Hi G.House Records! I'd like to book a session.\n`+
-      `Name: ${g('b-name')}\nPhone: ${g('b-phone')}\nDate: ${g('b-date')}\nTime: ${g('b-time')}\n`+
-      `Session: ${g('b-package')}\nArtists: ${g('b-artists')}\n`+(notes?`Notes: ${notes}\n`:''));
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,'_blank');
-  });
-
-  /* ---- TICKETING ---- */
-  document.querySelectorAll('.tier').forEach(tier=>{
-    const qtyEl=tier.querySelector('.qty'); let qty=1;
-    tier.querySelector('.qty-minus').addEventListener('click',()=>{qty=Math.max(1,qty-1);qtyEl.textContent=qty;});
-    tier.querySelector('.qty-plus').addEventListener('click',()=>{qty=Math.min(10,qty+1);qtyEl.textContent=qty;});
-    tier.querySelector('.tier-btn').addEventListener('click',()=>{
-      const tierName=tier.dataset.tier, price=parseInt(tier.dataset.price,10), total=price*qty;
-      const ref='GHR-'+Math.random().toString(36).slice(2,7).toUpperCase();
-      document.getElementById('refCode').textContent=ref;
-      document.getElementById('momoSteps').innerHTML=
-        `<b>${qty}× ${tierName}</b> — total <b>UGX ${total.toLocaleString()}</b><br>`+
-        `<b>1.</b> Send UGX ${total.toLocaleString()} via MTN MoMo to <b>+256 706 612 367</b> (G.House Records)<br>`+
-        `<b>2.</b> Use <b>${ref}</b> as the payment comment<br>`+
-        `<b>3.</b> Tap "Confirm on WhatsApp" below — we'll text your e-ticket back`;
-      const msg=encodeURIComponent(
-        `Hi G.House Records! I'd like to confirm a ticket order.\n`+
-        `Tier: ${tierName}\nQty: ${qty}\nTotal: UGX ${total.toLocaleString()}\nReference: ${ref}\n`+
-        `I've sent payment via MTN MoMo — please confirm and send my e-ticket.`);
-      document.getElementById('ticketWA').href=`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-      document.querySelector('.ticket-summary').scrollIntoView({behavior:'smooth',block:'center'});
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && artistModal.classList.contains("open")) {
+        closeArtistModal();
+      }
     });
-  });
 
-  /* ---- COUNTDOWN (next last-Saturday) ---- */
-  function nextLastSaturday(){
-    const now=new Date();
-    function lastSat(y,m){ const d=new Date(y,m+1,0); d.setDate(d.getDate()-((d.getDay()+1)%7)); d.setHours(20,0,0,0); return d; }
-    let target=lastSat(now.getFullYear(),now.getMonth());
-    if(target<now) target=lastSat(now.getFullYear(),now.getMonth()+1);
-    return target;
-  }
-  const target=nextLastSaturday();
-  function tick(){
-    const diff=target-new Date();
-    if(diff<=0){ ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00'); return; }
-    const d=Math.floor(diff/86400000), h=Math.floor(diff/3600000)%24, m=Math.floor(diff/60000)%60, s=Math.floor(diff/1000)%60;
-    document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
-    document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
-    document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
-    document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
-  }
-  tick(); setInterval(tick,1000);
-</script>
+    modalBookLink.addEventListener("click", () => {
+      closeArtistModal();
+    });
+  </script>
 
 </body>
 </html>
